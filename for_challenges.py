@@ -2,6 +2,7 @@
 # Необходимо вывести имена всех учеников из списка с новой строки
 
 names = ['Оля', 'Петя', 'Вася', 'Маша']
+print('\n'.join(names))
 # ???
 
 
@@ -12,7 +13,8 @@ names = ['Оля', 'Петя', 'Вася', 'Маша']
 # Петя: 4
 
 names = ['Оля', 'Петя', 'Вася', 'Маша']
-# ???
+for name in names:
+    print(f"{name}: {len(name)}")
 
 
 # Задание 3
@@ -25,6 +27,10 @@ is_male = {
     'Маша': False,
 }
 names = ['Оля', 'Петя', 'Вася', 'Маша']
+for name,gender in is_male.items():
+    gender = "М" if gender else "Ж"
+    print(f"{name}: {gender}")
+    
 # ???
 
 
@@ -40,6 +46,13 @@ groups = [
     ['Вася', 'Маша', 'Саша', 'Женя'],
     ['Оля', 'Петя', 'Гриша'],
 ]
+
+count_groups = len(groups)
+print(f"Всего {count_groups} группы")
+
+for group_number,group in enumerate(groups, start = 1):
+    count_students = len(group)
+    print(f"Группа {group_number}: {count_students} ученика")
 # ???
 
 
@@ -54,4 +67,8 @@ groups = [
     ['Оля', 'Петя', 'Гриша'],
     ['Вася', 'Маша', 'Саша', 'Женя'],
 ]
+
+for group_number,group in enumerate(groups, start = 1):
+    students = ', '.join(group)
+    print(f"Группа {group_number}: {students}")
 # ???

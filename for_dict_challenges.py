@@ -12,7 +12,18 @@ students = [
     {'first_name': 'Маша'},
     {'first_name': 'Петя'},
 ]
-# ???
+
+names = dict()
+
+for student in students:
+    if student['first_name'] not in names.keys():
+        names[student['first_name']] = 1
+    else:
+        names[student['first_name']] += 1
+
+for name, count in names.items():
+    print(f"{name}:{count}")
+    # ???
 
 
 # Задание 2
@@ -26,6 +37,22 @@ students = [
     {'first_name': 'Маша'},
     {'first_name': 'Оля'},
 ]
+names = dict()
+
+for student in students:
+    if student['first_name'] not in names.keys():
+        names[student['first_name']] = 1
+    else:
+        names[student['first_name']] += 1
+
+frequent_name = None
+name_count = 0
+
+for name, count in names.items():
+    if count > name_count:
+        name_count = count
+        frequent_name = name
+print(f"Самое частое имя: {frequent_name}")
 # ???
 
 
@@ -51,6 +78,16 @@ school_students = [
         {'first_name': 'Саша'},
     ],
 ]
+
+from collections import Counter
+
+class_num = 1
+for item in school_students:
+    temp = [name['first_name'] for name in item]
+    count = Counter(temp)
+    print(f'Самое частое имя в классе {class_num}: {count.most_common()[0][0]}')
+    class_num += 1
+
 # ???
 
 
@@ -72,6 +109,25 @@ is_male = {
     'Миша': True,
     'Даша': False,
 }
+
+print(school[0], type(school[0]))
+
+for class_info in school:
+    class_name = class_info['class']
+    students = class_info['students']
+
+    boys = 0
+    girls = 0
+
+    for student in students:
+            name = student['first_name']
+            if is_male.get(name):
+                boys +=1
+            else:
+                girls +=1
+
+print(f'Класс {class_name}: девочки {girls}, мальчики {boys}')
+
 # ???
 
 
