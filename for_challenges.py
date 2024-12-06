@@ -27,9 +27,11 @@ is_male = {
     'Маша': False,
 }
 names = ['Оля', 'Петя', 'Вася', 'Маша']
-for name,gender in is_male.items():
-    gender = "М" if gender else "Ж"
-    print(f"{name}: {gender}")
+for name in names:
+    if name in is_male:
+#        print(name)
+        gender = "М" if is_male[name] else "Ж"
+        print(f"{name}: {gender}")
     
 # ???
 
